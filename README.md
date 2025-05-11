@@ -1,7 +1,7 @@
 # Css_Avanzado
 Modulo 2 CSS Avanzado
 
-# Sistema de Mensajería
+# Desafío 1 : Sistema de Mensajería
 
 Este proyecto es un sistema de mensajería diseñado como parte de un desafío para practicar **CSS avanzado** con **Flexbox**. El objetivo principal es crear una interfaz responsiva y bien estructurada que permita visualizar una lista de contactos y un panel principal para iniciar nuevas conversaciones.
 
