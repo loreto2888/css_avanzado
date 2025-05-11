@@ -1,0 +1,46 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  border: 1px solid green;
+  justify-content: space-evenly;
+  background-color: beige;
+  padding: 1rem;
+}
+
+/* Elementos flexibles */
+.flex-item {
+  border: 1px solid red;
+  width: 15%;
+  padding: 1rem;
+}
+
+/* Hero principal */
+.hero {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./arbol.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 35vh;
+}
+
+/* Galería de imágenes (si se usa) */
+.galeria-imgs {
+  display: flex;
+  border: 2px solid blue;
+  flex-wrap: wrap;
+}
