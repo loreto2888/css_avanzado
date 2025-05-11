@@ -1,7 +1,15 @@
+
 # Css_Avanzado
 Modulo 2 CSS Avanzado
 
 # Desafío 1 : Sistema de Mensajería
+
+Css_Avanzado
+Modulo 2 CSS Avanzado
+
+Desafío 1 : Sistema de Mensajería
+# Sistema de Mensajería
+
 
 Este proyecto es un sistema de mensajería diseñado como parte de un desafío para practicar **CSS avanzado** con **Flexbox**. El objetivo principal es crear una interfaz responsiva y bien estructurada que permita visualizar una lista de contactos y un panel principal para iniciar nuevas conversaciones.
 
@@ -30,8 +38,8 @@ Este proyecto es un sistema de mensajería diseñado como parte de un desafío p
 
 c:\Desafio_G95\modulo2CSSavanzado\d1_sistemamensajeria
 
-├── css/ │ └── style.css # Archivo de estilos CSS 
-├── img/ │ 
+├── css/ │ └── style.css # Archivo de estilos CSS
+├── img/ │
       ├── maria.png
       ├── fotoprincipalmanos.png
       ├── Juanita.png
@@ -42,4 +50,18 @@ c:\Desafio_G95\modulo2CSSavanzado\d1_sistemamensajeria
       ├── Gonzalo.png
       ├── Juanpablo.png
       └── Magdalena.png
-├── index.html # Archivo principal de la estructura HTML 
+├── index.html # Archivo principal de la estructura HTML
+
+├── css/ │ └── style.css # Archivo de estilos CSS
+├── img/ │
+          ├──  maria.png
+          ├── fotoprincipalmanos.png
+          ├── Juanita.png
+          ├── Alberto.png
+          ├── Ignacio.png
+          ├── Critian.png
+          ├── MariaJose.png
+          ├── Gonzalo.png
+          ├── Juanpablo.png
+          └── Magdalena.png
+├── index.html # Archivo principal de la estructura HTML
