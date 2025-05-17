@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PsicoTienda - Servicios y Material Educativo</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Font Awesome para el icono del carro -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <div class="grid-container">
-      <header>PsicoTienda</header>
+      <header>
+        <span>PsicoTienda</span>
+        <a href="carro.html" class="cart-link" title="Ver carro de compras">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </header>
       <nav class="sidebar">
         <h3>Servicios</h3>
         <ul>
@@ -30,34 +37,30 @@
           <img src="./img/cuaderno_lectoescritura__.jpg" alt="Cuaderno Lectoescritura" />
           <h4>Cuaderno Lectoescritura</h4>
           <p>$14.990</p>
-          <button>Agregar al carro</button>
+          <button onclick="location.href='carro.html'">Agregar al carro</button>
         </div>
-
         <div class="product-card">
           <img src="./img/tarjetas_matematicas.jpg" alt="Tarjetas Matemáticas" />
           <h4>Tarjetas de Sumas y Restas</h4>
           <p>$5.500</p>
-          <button>Agregar al carro</button>
+          <button onclick="location.href='carro.html'">Agregar al carro</button>
         </div>
-
         <div class="product-card">
           <img src="./img/pack_psicopedagogia.png" alt="Pack Psicopedagógico" />
           <h4>Informes- Test- Planificaciones- Carpeta PIE</h4>
           <p>$5.000</p>
-          <button>Agregar al carro</button>
+          <button onclick="location.href='carro.html'">Agregar al carro</button>
         </div>
-
         <div class="product-card">
           <img src="./img/pack_pruebasdiagnostico.png" alt="Pruebas Diagnóstico" />
-          <h4>Asignaturas: Lenguaje - Matemáticas - Historia - Ciencias ( 1ero a 8 avo Básico)</h4>
+          <h4>Asignaturas: Lenguaje - Matemáticas - Historia - Ciencias (1ero a 8vo Básico)</h4>
           <p>$5.000</p>
-          <button>Agregar al carro</button>
+          <button onclick="location.href='carro.html'">Agregar al carro</button>
         </div>
       </main>
       <footer>
         <p>
-          &copy; 2025 PsicoTienda - Servicios Psicopedagógicos y Recursos
-          Educativos
+          &copy; 2025 PsicoTienda - Servicios Psicopedagógicos y Recursos Educativos
         </p>
       </footer>
     </div>
