@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PsicoTienda - Servicios y Material Educativo</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- Font Awesome para el icono del carro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <div class="grid-container">
       <header>
         <span>PsicoTienda</span>
-        <a href="carro.html" class="cart-link" title="Ver carro de compras">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
+        <div class="cart-area">
+          <a href="#" class="cart-link" id="openCart" title="Ver carro de compras">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
       </header>
       <nav class="sidebar">
         <h3>Servicios</h3>
@@ -37,25 +39,25 @@
           <img src="./img/cuaderno_lectoescritura__.jpg" alt="Cuaderno Lectoescritura" />
           <h4>Cuaderno Lectoescritura</h4>
           <p>$14.990</p>
-          <button onclick="location.href='carro.html'">Agregar al carro</button>
+          <button class="add-to-cart" data-product="Cuaderno Lectoescritura" data-price="14990">Agregar al carro</button>
         </div>
         <div class="product-card">
           <img src="./img/tarjetas_matematicas.jpg" alt="Tarjetas Matemáticas" />
           <h4>Tarjetas de Sumas y Restas</h4>
           <p>$5.500</p>
-          <button onclick="location.href='carro.html'">Agregar al carro</button>
+          <button class="add-to-cart" data-product="Tarjetas de Sumas y Restas" data-price="5500">Agregar al carro</button>
         </div>
         <div class="product-card">
           <img src="./img/pack_psicopedagogia.png" alt="Pack Psicopedagógico" />
           <h4>Informes- Test- Planificaciones- Carpeta PIE</h4>
           <p>$5.000</p>
-          <button onclick="location.href='carro.html'">Agregar al carro</button>
+          <button class="add-to-cart" data-product="Pack Psicopedagógico" data-price="5000">Agregar al carro</button>
         </div>
         <div class="product-card">
           <img src="./img/pack_pruebasdiagnostico.png" alt="Pruebas Diagnóstico" />
           <h4>Asignaturas: Lenguaje - Matemáticas - Historia - Ciencias (1ero a 8vo Básico)</h4>
           <p>$5.000</p>
-          <button onclick="location.href='carro.html'">Agregar al carro</button>
+          <button class="add-to-cart" data-product="Pruebas Diagnóstico" data-price="5000">Agregar al carro</button>
         </div>
       </main>
       <footer>
@@ -64,5 +66,60 @@
         </p>
       </footer>
     </div>
+
+    <!-- Panel Carro de Compras -->
+    <div id="cartPanel" class="cart-panel">
+      <div class="cart-panel-content">
+        <h2>Carro de Compras</h2>
+        <ul id="cartItems"></ul>
+        <p id="cartTotal"></p>
+        <button id="closeCart" class="cart-btn">Cerrar</button>
+        <a href="index.html" class="cart-btn back-btn">Volver a página principal</a>
+      </div>
+    </div>
+
+    <script>
+      // Carro simple en memoria
+      let cart = [];
+      const cartCount = document.getElementById('cartCount');
+      const cartPanel = document.getElementById('cartPanel');
+      const cartItems = document.getElementById('cartItems');
+      const cartTotal = document.getElementById('cartTotal');
+
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const name = this.getAttribute('data-product');
+          const price = parseInt(this.getAttribute('data-price'));
+          cart.push({ name, price });
+          cartCount.textContent = cart.length;
+        });
+      });
+
+      document.getElementById('openCart').addEventListener('click', function(e) {
+        e.preventDefault();
+        renderCart();
+        cartPanel.style.display = 'flex';
+      });
+
+      document.getElementById('closeCart').addEventListener('click', function() {
+        cartPanel.style.display = 'none';
+      });
+
+      function renderCart() {
+        cartItems.innerHTML = '';
+        let total = 0;
+        if (cart.length === 0) {
+          cartItems.innerHTML = '<li>No hay productos en el carro.</li>';
+        } else {
+          cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - $${item.price.toLocaleString()}`;
+            cartItems.appendChild(li);
+            total += item.price;
+          });
+        }
+        cartTotal.textContent = cart.length ? `Total: $${total.toLocaleString()}` : '';
+      }
+    </script>
   </body>
 </html>
