@@ -79,14 +79,14 @@
     </div>
 
    <script>
-  // Carro simple en memoria
+  // Carro simple en memoria para guardar productos
   let cart = [];
   const cartCount = document.getElementById('cartCount');
   const cartPanel = document.getElementById('cartPanel');
   const cartItems = document.getElementById('cartItems');
   const cartTotal = document.getElementById('cartTotal');
 
-  // Agregar producto al carro
+  // Agregar producto al carro y actualizar el contador
   document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.onclick = function() {
       const name = this.dataset.product;
@@ -96,7 +96,7 @@
     };
   });
 
-  // Mostrar el carro
+  // Mostrar el carro y los productos
   document.getElementById('openCart').onclick = function(e) {
     e.preventDefault();
     cartItems.innerHTML = '';
@@ -116,7 +116,7 @@
     cartPanel.style.display = 'flex';
   };
 
-  // Cerrar el carro
+  // Cerrar el carro de compras
   document.getElementById('closeCart').onclick = function() {
     cartPanel.style.display = 'none';
   };
