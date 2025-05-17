@@ -21,15 +21,18 @@ header {
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Centra el contenido */
   padding: 0 24px;
-  font-size: 1.5rem;
-}
-
-.cart-area {
+  font-size: 2.5rem; /* Más grande */
   position: relative;
 }
 
+header .cart-area {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .cart-link {
   color: #fff;
   font-size: 1.6rem;
@@ -78,28 +81,37 @@ header {
 .product-grid {
   grid-area: main;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row; /* Uno al lado del otro */
+  justify-content: flex-end; /* A la derecha */
+  align-items: flex-start;
   padding: 32px;
-  gap: 16px;
+  gap: 32px;
+  flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
 .product-card {
-  width: 220px;
+  width: 30rem;
+  height: 30rem;
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 12px;
+  padding: 18px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-card img {
   max-width: 100%;
-  height: 90px;
+  max-height: 14rem;
   object-fit: cover;
   border-radius: 4px;
+  margin-bottom: 12px;
 }
 
 .product-card h4 {
