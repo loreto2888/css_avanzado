@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PsicoTienda - Servicios y Material Educativo</title>
+    <!-- Enlace a los estilos CSS -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Enlace a Font Awesome para el icono del carro -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
   <body>
+    <!-- Contenedor principal con grid -->
     <div class="grid-container">
+      <!-- Header: Título y carro de compras -->
       <header>
         <span>PsicoTienda</span>
         <div class="cart-area">
@@ -26,6 +30,8 @@
           </a>
         </div>
       </header>
+
+      <!-- Sidebar: Menú lateral con servicios y materiales -->
       <nav class="sidebar">
         <h3>Servicios</h3>
         <ul>
@@ -48,7 +54,10 @@
           <li>Baterias Psicopedagogicas (20)</li>
         </ul>
       </nav>
+
+      <!-- Main: Grid de productos -->
       <main class="product-grid">
+        <!-- Tarjeta de producto 1 -->
         <div class="product-card">
           <img
             src="./img/cuaderno_lectoescritura__.jpg"
@@ -65,6 +74,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 2 -->
         <div class="product-card">
           <img
             src="./img/tarjetas_matematicas.jpg"
@@ -81,6 +91,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 3 -->
         <div class="product-card">
           <img src="./img/pack_psicopedagogia.png" alt="Pack Psicopedagógico" />
           <h4>Informes- Test- Planificaciones- Carpeta PIE</h4>
@@ -93,6 +104,8 @@
             Agregar al carro
           </button>
         </div>
+
+        <!-- Tarjeta de producto 4 -->
         <div class="product-card">
           <img
             src="./img/pack_pruebasdiagnostico.png"
@@ -112,6 +125,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 5 -->
         <div class="product-card">
           <img
             src="./img/taller_alfabetizacion_n.jpg"
@@ -128,6 +142,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 6 -->
         <div class="product-card">
           <img src="./img/wppsi_IV.png" alt="Cuaderno de Estímulos" />
           <h4>Dibujos-Cubos-Información-Nombres</h4>
@@ -141,6 +156,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 7 -->
         <div class="product-card">
           <img src="./img/test_psicologico.png" alt="Test psicológico" />
           <h4>Test psicológico</h4>
@@ -154,6 +170,7 @@
           </button>
         </div>
 
+        <!-- Tarjeta de producto 8 -->
         <div class="product-card">
           <img src="./img/bateria_psicopedagogica.png" alt="Batería psicopedagogíca" />
           <h4>Batería psicopedagogíca</h4>
@@ -167,6 +184,8 @@
           </button>
         </div>
       </main>
+
+      <!-- Footer: Pie de página -->
       <footer>
         <p>
           &copy; 2025 PsicoTienda - Servicios Psicopedagógicos y Recursos
@@ -175,7 +194,7 @@
       </footer>
     </div>
 
-    <!-- Panel Carro de Compras -->
+    <!-- Panel Carro de Compras (modal) -->
     <div id="cartPanel" class="cart-panel">
       <div class="cart-panel-content">
         <h2>Carro de Compras</h2>
@@ -188,6 +207,7 @@
       </div>
     </div>
 
+    <!-- Script para el funcionamiento del carro de compras -->
     <script>
       // Carro simple en memoria para guardar productos
       let cart = [];

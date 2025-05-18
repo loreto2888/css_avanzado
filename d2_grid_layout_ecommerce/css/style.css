@@ -1,38 +1,44 @@
+/* Estilos generales de la página */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #f9f9f9;
 }
 
+/* Contenedor principal con grid para layout de header, sidebar, main y footer */
 .grid-container {
   display: grid;
   grid-template-areas:
     "header header"
     "sidebar main"
     "footer footer";
-  grid-template-columns: 220px 1fr;
-  grid-template-rows: 60px 1fr 50px;
-  min-height: 100vh;
+  grid-template-columns: 220px 1fr; /* Sidebar a la izquierda, contenido principal a la derecha */
+  grid-template-rows: 60px 1fr 50px; /* Altura de header, main y footer */
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
 }
 
+/* Header: barra superior con título y carro */
 header {
   grid-area: header;
   background: #4e73df;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra el contenido */
+  justify-content: center; /* Centra el contenido horizontalmente */
   padding: 0 24px;
-  font-size: 2.5rem; /* Más grande */
-  position: relative;
+  font-size: 2.5rem; /* Tamaño grande para el título */
+  position: relative; /* Para posicionar el carro a la derecha */
 }
 
+/* Área del icono del carro en el header */
 header .cart-area {
   position: absolute;
   right: 32px;
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* Enlace del carro */
 .cart-link {
   color: #fff;
   font-size: 1.6rem;
@@ -41,6 +47,7 @@ header .cart-area {
   position: relative;
 }
 
+/* Contador del carro (círculo rojo con número) */
 .cart-count {
   position: absolute;
   top: -8px;
@@ -54,6 +61,7 @@ header .cart-area {
   text-align: center;
 }
 
+/* Sidebar: menú lateral izquierdo */
 .sidebar {
   grid-area: sidebar;
   background: #fff;
@@ -61,39 +69,43 @@ header .cart-area {
   border-right: 1px solid #e0e0e0;
 }
 
+/* Títulos del sidebar */
 .sidebar h3 {
   margin-top: 0;
   font-size: 1.1rem;
   color: #4e73df;
 }
 
+/* Listas del sidebar */
 .sidebar ul {
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
 }
 
+/* Elementos de la lista del sidebar */
 .sidebar li {
   margin-bottom: 8px;
   color: #333;
 }
 
+/* Grid de productos: contenedor de las tarjetas de productos */
 .product-grid {
   grid-area: main;
   display: flex;
-  flex-direction: row; /* Uno al lado del otro */
-  justify-content: flex-end; /* A la derecha */
+  flex-wrap: wrap; /* Permite que las tarjetas bajen a la siguiente línea */
+  justify-content: center; /* Centra horizontalmente las tarjetas */
   align-items: flex-start;
   padding: 32px;
-  gap: 32px;
-  flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+  gap: 32px; /* Espacio entre tarjetas */
   min-height: 100%;
   box-sizing: border-box;
 }
 
+/* Tarjeta individual de producto */
 .product-card {
-  width: 30rem;
-  height: 30rem;
+  width: 25rem;
+  height: 25rem;
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -102,30 +114,36 @@ header .cart-area {
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: center; /* Centra el contenido de la tarjeta */
 }
 
+/* Imagen del producto centrada y alineada */
 .product-card img {
-  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
   max-height: 18rem;
-  object-fit: cover;
+  object-fit: contain; /* Mantiene la proporción de la imagen */
   border-radius: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
+/* Título del producto */
 .product-card h4 {
   margin: 10px 0 6px 0;
   font-size: 1rem;
   color: #222;
 }
 
+/* Precio del producto */
 .product-card p {
   color: #4e73df;
   font-weight: bold;
   margin: 0 0 10px 0;
 }
 
+/* Botón de agregar al carro */
 .product-card button {
   background: #4e73df;
   color: #fff;
@@ -137,10 +155,12 @@ header .cart-area {
   transition: background 0.2s;
 }
 
+/* Efecto hover en el botón */
 .product-card button:hover {
   background: #3752a6;
 }
 
+/* Panel del carro de compras (modal) */
 .cart-panel {
   display: none;
   position: fixed;
@@ -151,6 +171,7 @@ header .cart-area {
   z-index: 1000;
 }
 
+/* Contenido del panel del carro */
 .cart-panel-content {
   background: #fff;
   padding: 28px 24px;
@@ -161,11 +182,13 @@ header .cart-area {
   text-align: center;
 }
 
+/* Título del panel del carro */
 .cart-panel-content h2 {
   margin-top: 0;
   color: #4e73df;
 }
 
+/* Lista de productos en el carro */
 .cart-panel-content ul {
   list-style: none;
   padding: 0;
@@ -173,11 +196,13 @@ header .cart-area {
   text-align: left;
 }
 
+/* Elementos de la lista del carro */
 .cart-panel-content li {
   margin-bottom: 8px;
   color: #333;
 }
 
+/* Botones del panel del carro */
 .cart-btn {
   background: #4e73df;
   color: #fff;
@@ -191,14 +216,17 @@ header .cart-area {
   display: inline-block;
 }
 
+/* Hover para los botones del carro */
 .cart-btn:hover {
   background: #3752a6;
 }
 
+/* Botón de volver (diferente color) */
 .back-btn {
   background: #888;
 }
 
+/* Footer: pie de página */
 footer {
   grid-area: footer;
   background: #f1f1f1;
@@ -207,5 +235,4 @@ footer {
   font-size: 0.95rem;
   padding: 2px 0;
   border-top: 1px solid #e0e0e0;
-
 }
