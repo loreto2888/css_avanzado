@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PsicoTienda - Servicios y Material Educativo</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="grid-container">
       <header>
         <span>PsicoTienda</span>
         <div class="cart-area">
-          <a href="#" class="cart-link" id="openCart" title="Ver carro de compras">
+          <a
+            href="#"
+            class="cart-link"
+            id="openCart"
+            title="Ver carro de compras"
+          >
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
           </a>
@@ -36,33 +44,114 @@
       </nav>
       <main class="product-grid">
         <div class="product-card">
-          <img src="./img/cuaderno_lectoescritura__.jpg" alt="Cuaderno Lectoescritura" />
+          <img
+            src="./img/cuaderno_lectoescritura__.jpg"
+            alt="Cuaderno Lectoescritura"
+          />
           <h4>Cuaderno Lectoescritura</h4>
           <p>$14.990</p>
-          <button class="add-to-cart" data-product="Cuaderno Lectoescritura" data-price="14990">Agregar al carro</button>
+          <button
+            class="add-to-cart"
+            data-product="Cuaderno Lectoescritura"
+            data-price="14990"
+          >
+            Agregar al carro
+          </button>
         </div>
+
         <div class="product-card">
-          <img src="./img/tarjetas_matematicas.jpg" alt="Tarjetas Matemáticas" />
+          <img
+            src="./img/tarjetas_matematicas.jpg"
+            alt="Tarjetas Matemáticas"
+          />
           <h4>Tarjetas de Sumas y Restas</h4>
           <p>$5.500</p>
-          <button class="add-to-cart" data-product="Tarjetas de Sumas y Restas" data-price="5500">Agregar al carro</button>
+          <button
+            class="add-to-cart"
+            data-product="Tarjetas de Sumas y Restas"
+            data-price="5500"
+          >
+            Agregar al carro
+          </button>
         </div>
+
         <div class="product-card">
           <img src="./img/pack_psicopedagogia.png" alt="Pack Psicopedagógico" />
           <h4>Informes- Test- Planificaciones- Carpeta PIE</h4>
           <p>$5.000</p>
-          <button class="add-to-cart" data-product="Pack Psicopedagógico" data-price="5000">Agregar al carro</button>
+          <button
+            class="add-to-cart"
+            data-product="Pack Psicopedagógico"
+            data-price="5000"
+          >
+            Agregar al carro
+          </button>
         </div>
         <div class="product-card">
-          <img src="./img/pack_pruebasdiagnostico.png" alt="Pruebas Diagnóstico" />
-          <h4>Asignaturas: Lenguaje - Matemáticas - Historia - Ciencias (1ero a 8vo Básico)</h4>
+          <img
+            src="./img/pack_pruebasdiagnostico.png"
+            alt="Pruebas Diagnóstico"
+          />
+          <h4>
+            Asignaturas: Lenguaje - Matemáticas - Historia - Ciencias (1ero a
+            8vo Básico)
+          </h4>
           <p>$5.000</p>
-          <button class="add-to-cart" data-product="Pruebas Diagnóstico" data-price="5000">Agregar al carro</button>
+          <button
+            class="add-to-cart"
+            data-product="Pruebas Diagnóstico"
+            data-price="5000"
+          >
+            Agregar al carro
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img
+            src="./img/taller_alfabetizacion_n.jpg"
+            alt="Taller de Alfabetización"
+          />
+          <h4>Inicio en la Lectoescritura</h4>
+          <p>$15.000</p>
+          <button
+            class="add-to-cart"
+            data-product="Taller de Alfabetización"
+            data-price="5000"
+          >
+            Agregar al carro
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="./img/wppsi_IV.png" alt="Cuaderno de Estímulos" />
+          <h4>Dibujos-Cubos-Información-Nombres</h4>
+          <p>$12.000</p>
+          <button
+            class="add-to-cart"
+            data-product="Cuaderno de Estímulos"
+            data-price="5000"
+          >
+            Agregar al carro
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="./img/test_psicologico.png" alt="Test psicológico" />
+          <h4>Test psicológico</h4>
+          <p>$5.000</p>
+          <button
+            class="add-to-cart"
+            data-product="Test psicológico"
+            data-price="5000"
+          >
+            Agregar al carro
+          </button>
         </div>
       </main>
       <footer>
         <p>
-          &copy; 2025 PsicoTienda - Servicios Psicopedagógicos y Recursos Educativos
+          &copy; 2025 PsicoTienda - Servicios Psicopedagógicos y Recursos
+          Educativos
         </p>
       </footer>
     </div>
@@ -74,52 +163,54 @@
         <ul id="cartItems"></ul>
         <p id="cartTotal"></p>
         <button id="closeCart" class="cart-btn">Cerrar</button>
-        <a href="index.html" class="cart-btn back-btn">Volver a página principal</a>
+        <a href="index.html" class="cart-btn back-btn"
+          >Volver a página principal</a
+        >
       </div>
     </div>
 
-   <script>
-  // Carro simple en memoria para guardar productos
-  let cart = [];
-  const cartCount = document.getElementById('cartCount');
-  const cartPanel = document.getElementById('cartPanel');
-  const cartItems = document.getElementById('cartItems');
-  const cartTotal = document.getElementById('cartTotal');
+    <script>
+      // Carro simple en memoria para guardar productos
+      let cart = [];
+      const cartCount = document.getElementById("cartCount");
+      const cartPanel = document.getElementById("cartPanel");
+      const cartItems = document.getElementById("cartItems");
+      const cartTotal = document.getElementById("cartTotal");
 
-  // Agregar producto al carro y actualizar el contador
-  document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.onclick = function() {
-      const name = this.dataset.product;
-      const price = Number(this.dataset.price);
-      cart.push({ name, price });
-      cartCount.textContent = cart.length;
-    };
-  });
-
-  // Mostrar el carro y los productos
-  document.getElementById('openCart').onclick = function(e) {
-    e.preventDefault();
-    cartItems.innerHTML = '';
-    let total = 0;
-    if (cart.length === 0) {
-      cartItems.innerHTML = '<li>No hay productos en el carro.</li>';
-      cartTotal.textContent = '';
-    } else {
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item.name + ' - $' + item.price.toLocaleString();
-        cartItems.appendChild(li);
-        total += item.price;
+      // Agregar producto al carro y actualizar el contador
+      document.querySelectorAll(".add-to-cart").forEach((btn) => {
+        btn.onclick = function () {
+          const name = this.dataset.product;
+          const price = Number(this.dataset.price);
+          cart.push({ name, price });
+          cartCount.textContent = cart.length;
+        };
       });
-      cartTotal.textContent = 'Total: $' + total.toLocaleString();
-    }
-    cartPanel.style.display = 'flex';
-  };
 
-  // Cerrar el carro de compras
-  document.getElementById('closeCart').onclick = function() {
-    cartPanel.style.display = 'none';
-  };
-</script>
+      // Mostrar el carro y los productos
+      document.getElementById("openCart").onclick = function (e) {
+        e.preventDefault();
+        cartItems.innerHTML = "";
+        let total = 0;
+        if (cart.length === 0) {
+          cartItems.innerHTML = "<li>No hay productos en el carro.</li>";
+          cartTotal.textContent = "";
+        } else {
+          cart.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item.name + " - $" + item.price.toLocaleString();
+            cartItems.appendChild(li);
+            total += item.price;
+          });
+          cartTotal.textContent = "Total: $" + total.toLocaleString();
+        }
+        cartPanel.style.display = "flex";
+      };
+
+      // Cerrar el carro de compras
+      document.getElementById("closeCart").onclick = function () {
+        cartPanel.style.display = "none";
+      };
+    </script>
   </body>
 </html>
