@@ -1,39 +1,37 @@
-# Sistema de Mensajería
+# PsicoTienda - Ecommerce de Material Didáctico y Servicios Psicopedagógicos
 
-Este proyecto es un sistema de mensajería diseñado como parte de un desafío para practicar **CSS avanzado** con **Flexbox**. El objetivo principal es crear una interfaz responsiva y bien estructurada que permita visualizar una lista de contactos y un panel principal para iniciar nuevas conversaciones.
+Este proyecto es una tienda online simple para la venta de materiales didácticos y servicios psicopedagógicos, desarrollada como ejercicio de maquetación y CSS Grid avanzado.
+
+## Estructura del proyecto
+
+d2_grid_layout_ecommerce/
+│
+├── index.html # Página principal con el catálogo de productos y servicios
+├── assets/
+│ ├── css/
+│ │ └── style.css # Estilos principales, usando CSS Grid y Flexbox para el layout
+│ └── img/ # Imágenes de los productos
+└── README.md # Este archivo
 
 ## Características
 
-- **Panel Izquierdo**:
-  - Muestra la información del usuario actual (foto, nombre y estado).
-  - Botón "Nuevo Chat" para iniciar nuevas conversaciones.
-  - Lista de contactos con nombre, foto y un mensaje breve.
+- Catálogo de productos con imágenes, precios y botón para agregar al carro.
+- Carro de compras visual, con contador de productos y panel modal para ver el detalle.
+- Layout responsivo y homogéneo usando CSS Grid y Flexbox.
+- Sidebar con menú de servicios y materiales.
+- Footer fijo con información de derechos.
 
-- **Panel Derecho**:
-  - Contiene un mensaje de bienvenida con un título, una imagen y una descripción.
-  - Diseño limpio y centrado.
+- **index.html**: Página principal con el catálogo de productos y servicios.
+- **assets/css/style.css**: Estilos principales, usando CSS Grid y Flexbox para el layout.
+- **assets/img/**: Imágenes de los productos.
+- **README.md**: Este archivo.
 
-- **Responsividad**:
-  - El diseño se adapta a diferentes tamaños de pantalla utilizando **media queries**.
-  - En pantallas pequeñas, los paneles se ajustan para ocupar todo el ancho disponible.
+## Características
 
-## Tecnologías Utilizadas
+- Catálogo de productos con imágenes, precios y botón para agregar al carro.
+- Carro de compras visual, con contador de productos y panel modal para ver el detalle.
+- Layout responsivo y homogéneo usando CSS Grid y Flexbox.
+- Sidebar con menú de servicios y materiales.
+- Footer fijo con información de derechos.
 
-- **HTML5**: Para la estructura del contenido.
-- **CSS3**: Para el diseño y la disposición de los elementos utilizando Flexbox.
-- **Font Awesome**: Para los íconos en la barra de usuario.
-
-## Estructura del Proyecto
-├── css/ │ └── style.css # Archivo de estilos CSS 
-├── img/ │ 
-    ├── maria.png
-    ├── fotoprincipalmanos.png
-    ├── Juanita.png
-    ├── Alberto.png
-    ├── Ignacio.png
-    ├── Critian.png
-    ├── MariaJose.png
-    ├── Gonzalo.png
-    ├── Juanpablo.png
-    └── Magdalena.png
-├── index.html # Archivo principal de la estructura HTML 
+**Desarrollado para el módulo de CSS avanzado - Desafío Latam**
