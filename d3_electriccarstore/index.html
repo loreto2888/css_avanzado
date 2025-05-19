@@ -91,79 +91,104 @@
     </div>
 
     <!-- Modal Carro de Compras -->
-    <div id="modal-carro" class="modal-carro">
+        <div id="modal-carro" class="modal-carro">
       <div class="modal-contenido">
         <span class="cerrar-modal" id="cerrar-modal">&times;</span>
         <h2>Carro de Compras</h2>
         <ul id="lista-carro"></ul>
-        <h3>Métodos de Pago</h3>
-        <ul>
-          <li>💳 Tarjeta de crédito/débito</li>
-          <li>💵 Transferencia bancaria</li>
-          <li>🪙 Pago en efectivo</li>
-        </ul>
+        <p id="total-carro"><strong>Total:</strong> $0</p>
+        <h3>Método de Pago</h3>
+        <form id="form-pago">
+          <label><input type="radio" name="pago" value="Tarjeta" checked> 💳 Tarjeta de crédito/débito</label><br>
+          <label><input type="radio" name="pago" value="Transferencia"> 💵 Transferencia bancaria</label><br>
+          <label><input type="radio" name="pago" value="Efectivo"> 🪙 Pago en efectivo</label>
+        </form>
+        <button id="confirmar-pago" class="ver-mas-btn" style="margin-top:16px;">Confirmar compra</button>
+        <p id="mensaje-pago" style="color:green; margin-top:10px;"></p>
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let contador = 0;
-        const contadorCarro = document.getElementById("contador-carro");
-        const botonesCarro = document.querySelectorAll(".carro-btn");
-        const modal = document.getElementById("modal-carro");
-        const cerrarModal = document.getElementById("cerrar-modal");
-        const listaCarro = document.getElementById("lista-carro");
-        const productos = document.querySelectorAll(".producto");
-        let carrito = [];
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+  let contador = 0;
+  const contadorCarro = document.getElementById("contador-carro");
+  let carrito = [];
 
-        // Agregar producto al carro
-        botonesCarro.forEach((btn, idx) => {
-          btn.addEventListener("click", function () {
-            contador++;
-            contadorCarro.textContent = contador;
+  function actualizarBotones() {
+    const botonesCarro = document.querySelectorAll(".carro-btn");
+    const productos = document.querySelectorAll(".producto");
 
-            // Obtener datos del producto
-            const prod = productos[idx];
-            const nombre = prod.querySelector("p").textContent;
-            const precio = prod.querySelector(".precio").textContent;
+    botonesCarro.forEach((btn, idx) => {
+      btn.onclick = function () {
+        contador++;
+        contadorCarro.textContent = contador;
 
-            carrito.push({ nombre, precio });
+        // Obtener datos del producto
+        const prod = productos[idx];
+        const nombre = prod.querySelector("p").textContent;
+        const precio = prod.querySelector(".precio").textContent;
 
-            // Mostrar modal al agregar
-            mostrarCarro();
-          });
-        });
+        carrito.push({ nombre, precio });
 
-        // Mostrar modal al hacer click en el carro superior
-        document
-          .querySelector(".carro-superior")
-          .addEventListener("click", mostrarCarro);
+        // Mostrar modal al agregar
+        mostrarCarro();
+      };
+    });
+  }
 
-        function mostrarCarro() {
-          listaCarro.innerHTML = "";
-          if (carrito.length === 0) {
-            listaCarro.innerHTML = "<li>No hay productos en el carro.</li>";
-          } else {
-            carrito.forEach((item) => {
-              const li = document.createElement("li");
-              li.textContent = `${item.nombre} - ${item.precio}`;
-              listaCarro.appendChild(li);
-            });
-          }
-          modal.style.display = "flex";
-        }
+  // Modal
+  const modal = document.getElementById("modal-carro");
+  const cerrarModal = document.getElementById("cerrar-modal");
+  const listaCarro = document.getElementById("lista-carro");
+  const totalCarro = document.getElementById("total-carro");
+  const formPago = document.getElementById("form-pago");
+  const confirmarPago = document.getElementById("confirmar-pago");
+  const mensajePago = document.getElementById("mensaje-pago");
 
-        cerrarModal.addEventListener("click", function () {
-          modal.style.display = "none";
-        });
-
-        // Cerrar modal al hacer click fuera del contenido
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        };
+  function mostrarCarro() {
+    listaCarro.innerHTML = "";
+    let total = 0;
+    if (carrito.length === 0) {
+      listaCarro.innerHTML = "<li>No hay productos en el carro.</li>";
+    } else {
+      carrito.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nombre} - ${item.precio}`;
+        listaCarro.appendChild(li);
+        // Sumar precios (elimina $ y puntos)
+        total += parseInt(item.precio.replace(/\$|\./g, ""));
       });
-    </script>
+    }
+    totalCarro.innerHTML = `<strong>Total:</strong> $${total.toLocaleString("es-CL")}`;
+    mensajePago.textContent = "";
+    modal.style.display = "flex";
+  }
+
+  document.querySelector(".carro-superior").onclick = mostrarCarro;
+  cerrarModal.onclick = function () {
+    modal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // Confirmar pago
+confirmarPago.onclick = function (e) {
+  e.preventDefault();
+  const metodo = formPago.pago.value;
+  mensajePago.textContent = `¡Compra confirmada con método: ${metodo}!`;
+  // Vaciar el carro y actualizar contador
+  carrito = [];
+  contador = 0;
+  contadorCarro.textContent = contador;
+  mostrarCarro();
+};
+
+  // Inicializar eventos
+  actualizarBotones();
+});
+</script>
   </body>
 </html>
