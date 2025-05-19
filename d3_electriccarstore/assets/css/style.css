@@ -7,6 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    background: #f5f5f5;
 }
 
 .container {
@@ -18,6 +19,7 @@ body {
         "pie";
     grid-template-rows: auto auto 1fr auto;
     gap: 10px;
+    min-height: 100vh;
 }
 
 .menu {
@@ -34,42 +36,97 @@ body {
     display: none;
 }
 
+.menu .links a,
+.menu .logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.menu .links a:hover {
+    color: #ffd700;
+}
+
+.menu .logo {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
 .menu .hamburguesa {
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .filtros {
     grid-area: filtros;
     background-color: #f1f1f1;
     padding: 10px;
+    border-radius: 6px;
+    margin: 0 10px;
 }
 
 .productos {
     grid-area: productos;
     display: grid;
-    gap: 10px;
+    gap: 16px;
     padding: 10px;
 }
 
 .producto {
     background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 8px;
     text-align: center;
-    padding: 10px;
+    padding: 16px 10px 14px 10px;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: box-shadow 0.2s;
+}
+
+.producto:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .producto img {
-    width: 100%;
-    height: auto;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background: #f9f9f9;
 }
 
+.producto p {
+    margin: 10px 0 0 0;
+    font-size: 1rem;
+    color: #222;
+    flex-grow: 1;
+}
+
+.ver-mas-btn,
 .producto button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 8px 12px;
-    margin-top: 10px;
+    padding: 8px 16px;
+    margin-top: 14px;
     cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.ver-mas-btn:hover,
+.producto button:hover {
+    background-color: #0056b3;
 }
 
 .pie {
@@ -78,14 +135,16 @@ body {
     color: white;
     text-align: center;
     padding: 10px;
+    border-radius: 0 0 8px 8px;
 }
 
 .pie .social span {
     margin: 0 10px;
+    font-size: 1.2rem;
 }
 
 /* Tablet: desde 576px */
-@media (min-width: 576px) {
+@media (min-width:992px) {
     .productos {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -112,10 +171,18 @@ body {
     }
 
     .menu .links {
-        display: flex;
+       display: flex;
         flex-direction: column;
         gap: 10px;
-        margin-top: 20px;
+        margin-top: 0;}
+
+    .menu .links a {
+        color: #fff;
+    }
+
+    .menu .logo {
+        color: #fff;
+        margin-bottom: 24px;
     }
 
     .menu .hamburguesa {
@@ -124,5 +191,9 @@ body {
 
     .productos {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .filtros {
+        margin: 0;
     }
 }
