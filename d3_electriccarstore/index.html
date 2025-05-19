@@ -1,71 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda de Computadores</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <nav class="menu">
-            <div class="logo">🖥️ Tienda PC</div>
-            <div class="links">
-                <a href="#">Inicio</a>
-                <a href="#">Catálogo</a>
-                <a href="#">Ofertas</a>
-                <a href="#">Contacto</a>
-            </div>
-            <div class="hamburguesa">☰</div>
-        </nav>
+      <nav class="menu">
+        <div class="logo">Tienda PC</div>
+        <div class="links">
+          <a href="#"><span class="icono">🏠</span> Inicio</a>
+          <a href="#"><span class="icono">🖥️</span> Catálogo</a>
+          <a href="#"><span class="icono">💸</span> Ofertas</a>
+          <a href="#"><span class="icono">✉️</span> Contacto</a>
+        </div>
+        <div class="hamburguesa">☰</div>
+        <div class="carro-superior">
+          <span class="icono-carro">🛒</span>
+          <span id="contador-carro">0</span>
+        </div>
+      </nav>
+      <aside class="filtros">
+        <label for="orden">Ordenar por:</label>
+        <select id="orden">
+          <option value="precio">Precio</option>
+          <option value="marca">Marca</option>
+        </select>
+      </aside>
 
-        <aside class="filtros">
-            <label for="orden">Ordenar por:</label>
-            <select id="orden">
-                <option value="precio">Precio</option>
-                <option value="marca">Marca</option>
-            </select>
-        </aside>
+      <main class="productos">
+        <div class="producto">
+          <img src="./assets/img/notebookasus.jpg" alt="Notebook ASUS" />
+          <p>Notebook ASUS</p>
+          <span class="precio">$489.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.paris.cl/426256999.html?gad_source=1&gad_campaignid=21521397815&gbraid=0AAAAADAY7caj5n-DPWEI0sz69hQI8GuK7&gclid=CjwKCAjwravBBhBjEiwAIr30VLIEu7GavCY1zb_BWRi2doInoSoOBwVC4nTPowMgKe3noXpHx-6JhRoCb2YQAvD_BwE&gclsrc=aw.ds/"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/pcgamerintel.png" alt="PC Gamer Intel" />
+          <p>PC Gamer Intel</p>
+          <span class="precio">$1.299.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.playfactory.cl/pc-intel-i7-12700f-rtx-4060-16gb-1tb-win11/?gad_source=1&gad_campaignid=20740067939&gbraid=0AAAAAC7YTP7ggYNHDWKCZkl9rFeNhUnLW&gclid=CjwKCAjwravBBhBjEiwAIr30VIUpVWAWuXSF2hGwy_E-H7TqK3YeQ4XfNeJCBUrHsawqfaVRpbe4exoCKAsQAvD_BwE"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/allinoneHP.png" alt="All in One HP" />
+          <p>All in One HP</p>
+          <span class="precio">$879.992</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.lenovo.com/cl/es/p/computadoras-de-escritorio/ideacentre/serie-aio-500/ideacentre-aio-i-gen-9-(27-inch-intel)/f0hm00f8ld?cid=cl:sem:pmax|se|google|pmax+top+roas|||F0HM00F8LD|18133386624|||pmax|mixed|all&gad_source=1&gad_campaignid=17336452233&gbraid=0AAAAAC6Zm9L2aGkb4foukrhQkSkLMh5UT&gclid=CjwKCAjwravBBhBjEiwAIr30VBHkk8-awC6Eeevr7ZP8mi5r-2RCy08PQJmT1h42KzBV89WG8widCBoCB48QAvD_BwE"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/notebooklenovoi7.jpg" alt="Notebook Lenovo" />
+          <p>Notebook Lenovo</p>
+          <span class="precio">$699.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.elcontainer.cl/tecnologia/laptops/notebook-lenovo-t480s-intel-core-i7-8gb-ram-256gb-ssd?gad_source=1&gad_campaignid=17334228679&gbraid=0AAAAADO0_P7luq6zRZZEja5QRtGsa2N3E&gclid=CjwKCAjwravBBhBjEiwAIr30VP_OwhndtEMJnfvDGnBJfwnVnE0j4iRUnAH2sZXDxVooQ4y-4OeljxoCHOcQAvD_BwE"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+      </main>
 
-                <main class="productos">
-            <div class="producto">
-                <img src="./assets/img/notebookasus.jpg" alt="Notebook ASUS">
-                <p>Notebook ASUS</p>
-                <span class="precio">$489.990</span>
-                <button class="carro-btn" title="Agregar al carro">🛒</button>
-                <a href="https://www.paris.cl/426256999.html?gad_source=1&gad_campaignid=21521397815&gbraid=0AAAAADAY7caj5n-DPWEI0sz69hQI8GuK7&gclid=CjwKCAjwravBBhBjEiwAIr30VLIEu7GavCY1zb_BWRi2doInoSoOBwVC4nTPowMgKe3noXpHx-6JhRoCb2YQAvD_BwE&gclsrc=aw.ds/" class="ver-mas-btn" target="_blank">Ver más</a>
-            </div>
-            <div class="producto">
-                <img src="./assets/img/pcgamerintel.png" alt="PC Gamer Intel">
-                <p>PC Gamer Intel</p>
-                <span class="precio">$1.299.990</span>
-                <button class="carro-btn" title="Agregar al carro">🛒</button>
-                <a href="https://www.playfactory.cl/pc-intel-i7-12700f-rtx-4060-16gb-1tb-win11/?gad_source=1&gad_campaignid=20740067939&gbraid=0AAAAAC7YTP7ggYNHDWKCZkl9rFeNhUnLW&gclid=CjwKCAjwravBBhBjEiwAIr30VIUpVWAWuXSF2hGwy_E-H7TqK3YeQ4XfNeJCBUrHsawqfaVRpbe4exoCKAsQAvD_BwE" class="ver-mas-btn" target="_blank">Ver más</a>
-            </div>
-            <div class="producto">
-                <img src="./assets/img/allinoneHP.png" alt="All in One HP">
-                <p>All in One HP</p>
-                <span class="precio">$879.992</span>
-                <button class="carro-btn" title="Agregar al carro">🛒</button>
-                <a href="https://www.lenovo.com/cl/es/p/computadoras-de-escritorio/ideacentre/serie-aio-500/ideacentre-aio-i-gen-9-(27-inch-intel)/f0hm00f8ld?cid=cl:sem:pmax|se|google|pmax+top+roas|||F0HM00F8LD|18133386624|||pmax|mixed|all&gad_source=1&gad_campaignid=17336452233&gbraid=0AAAAAC6Zm9L2aGkb4foukrhQkSkLMh5UT&gclid=CjwKCAjwravBBhBjEiwAIr30VBHkk8-awC6Eeevr7ZP8mi5r-2RCy08PQJmT1h42KzBV89WG8widCBoCB48QAvD_BwE" class="ver-mas-btn" target="_blank">Ver más</a>
-            </div>
-            <div class="producto">
-                <img src="./assets/img/notebooklenovoi7.jpg" alt="Notebook Lenovo">
-                <p>Notebook Lenovo</p>
-                <span class="precio">$699.990</span>
-                <button class="carro-btn" title="Agregar al carro">🛒</button>
-                <a href="https://www.elcontainer.cl/tecnologia/laptops/notebook-lenovo-t480s-intel-core-i7-8gb-ram-256gb-ssd?gad_source=1&gad_campaignid=17334228679&gbraid=0AAAAADO0_P7luq6zRZZEja5QRtGsa2N3E&gclid=CjwKCAjwravBBhBjEiwAIr30VP_OwhndtEMJnfvDGnBJfwnVnE0j4iRUnAH2sZXDxVooQ4y-4OeljxoCHOcQAvD_BwE" class="ver-mas-btn" target="_blank">Ver más</a>
-            </div>
-        </main>
-
-        <footer class="pie">
-            <p>© 2025 Tienda de Computadores</p>
-            <div class="social">
-                <span>🌐</span>
-                <span>📷</span>
-            </div>
-        </footer>
+      <footer class="pie">
+        <p>© 2025 Tienda de Computadores</p>
+        <div class="social">
+          <span>🌐</span>
+          <span>📷</span>
+        </div>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
