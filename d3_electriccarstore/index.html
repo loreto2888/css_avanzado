@@ -14,7 +14,7 @@
     </header>
     <div class="container">
       <nav class="menu">
-                <!-- Dentro de <nav class="menu"> -->
+        <!-- Dentro de <nav class="menu"> -->
         <div class="logo"><h1>Tienda PC</h1></div>
         <div class="hamburguesa">☰</div>
         <div class="links">
@@ -27,8 +27,6 @@
           <span class="icono-carro">🛒</span>
           <span id="contador-carro">0</span>
         </div>
-        
-        
       </nav>
       <aside class="filtros">
         <label for="orden">Ordenar por:</label>
@@ -107,11 +105,26 @@
         <p id="total-carro"><strong>Total:</strong> $0</p>
         <h3>Método de Pago</h3>
         <form id="form-pago">
-          <label><input type="radio" name="pago" value="Tarjeta" checked /> 💳 Tarjeta de crédito/débito</label><br />
-          <label><input type="radio" name="pago" value="Transferencia" /> 💵 Transferencia bancaria</label><br />
-          <label><input type="radio" name="pago" value="Efectivo" /> 🪙 Pago en efectivo</label>
+          <label
+            ><input type="radio" name="pago" value="Tarjeta" checked /> 💳
+            Tarjeta de crédito/débito</label
+          ><br />
+          <label
+            ><input type="radio" name="pago" value="Transferencia" /> 💵
+            Transferencia bancaria</label
+          ><br />
+          <label
+            ><input type="radio" name="pago" value="Efectivo" /> 🪙 Pago en
+            efectivo</label
+          >
         </form>
-        <button id="confirmar-pago" class="ver-mas-btn" style="margin-top: 16px">Confirmar compra</button>
+        <button
+          id="confirmar-pago"
+          class="ver-mas-btn"
+          style="margin-top: 16px"
+        >
+          Confirmar compra
+        </button>
         <p id="mensaje-pago" style="color: green; margin-top: 10px"></p>
       </div>
     </div>
@@ -167,7 +180,9 @@
               total += parseInt(item.precio.replace(/\$|\./g, ""));
             });
           }
-          totalCarro.innerHTML = `<strong>Total:</strong> $${total.toLocaleString("es-CL")}`;
+          totalCarro.innerHTML = `<strong>Total:</strong> $${total.toLocaleString(
+            "es-CL"
+          )}`;
           mensajePago.textContent = "";
           modal.style.display = "flex";
         }
@@ -208,8 +223,12 @@
 
         if (this.value === "precio") {
           productosOrdenados.sort((a, b) => {
-            const precioA = parseInt(a.querySelector(".precio").textContent.replace(/\$|\./g, ""));
-            const precioB = parseInt(b.querySelector(".precio").textContent.replace(/\$|\./g, ""));
+            const precioA = parseInt(
+              a.querySelector(".precio").textContent.replace(/\$|\./g, "")
+            );
+            const precioB = parseInt(
+              b.querySelector(".precio").textContent.replace(/\$|\./g, "")
+            );
             return precioA - precioB;
           });
         } else if (this.value === "marca") {
@@ -224,7 +243,9 @@
 
         // Limpiar y volver a agregar en el orden correcto
         productosContainer.innerHTML = "";
-        productosOrdenados.forEach((prod) => productosContainer.appendChild(prod));
+        productosOrdenados.forEach((prod) =>
+          productosContainer.appendChild(prod)
+        );
       });
     </script>
   </body>
