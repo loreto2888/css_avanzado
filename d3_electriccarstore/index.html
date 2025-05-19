@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -6,66 +6,6 @@
     <title>Tienda de Computadores</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let contador = 0;
-      const contadorCarro = document.getElementById("contador-carro");
-      const botonesCarro = document.querySelectorAll(".carro-btn");
-      const modal = document.getElementById("modal-carro");
-      const cerrarModal = document.getElementById("cerrar-modal");
-      const listaCarro = document.getElementById("lista-carro");
-      const productos = document.querySelectorAll(".producto");
-      let carrito = [];
-
-      // Agregar producto al carro
-      botonesCarro.forEach((btn, idx) => {
-        btn.addEventListener("click", function () {
-          contador++;
-          contadorCarro.textContent = contador;
-
-          // Obtener datos del producto
-          const prod = productos[idx];
-          const nombre = prod.querySelector("p").textContent;
-          const precio = prod.querySelector(".precio").textContent;
-
-          carrito.push({ nombre, precio });
-
-          // Mostrar modal al agregar
-          mostrarCarro();
-        });
-      });
-
-      // Mostrar modal al hacer click en el carro superior
-      document
-        .querySelector(".carro-superior")
-        .addEventListener("click", mostrarCarro);
-
-      function mostrarCarro() {
-        listaCarro.innerHTML = "";
-        if (carrito.length === 0) {
-          listaCarro.innerHTML = "<li>No hay productos en el carro.</li>";
-        } else {
-          carrito.forEach((item) => {
-            const li = document.createElement("li");
-            li.textContent = `${item.nombre} - ${item.precio}`;
-            listaCarro.appendChild(li);
-          });
-        }
-        modal.style.display = "flex";
-      }
-
-      cerrarModal.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
-
-      // Cerrar modal al hacer click fuera del contenido
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    });
-  </script>
   <body>
     <div class="container">
       <nav class="menu">
@@ -97,7 +37,7 @@
           <span class="precio">$489.990</span>
           <button class="carro-btn" title="Agregar al carro">🛒</button>
           <a
-            href="https://www.paris.cl/426256999.html?gad_source=1&gad_campaignid=21521397815&gbraid=0AAAAADAY7caj5n-DPWEI0sz69hQI8GuK7&gclid=CjwKCAjwravBBhBjEiwAIr30VLIEu7GavCY1zb_BWRi2doInoSoOBwVC4nTPowMgKe3noXpHx-6JhRoCb2YQAvD_BwE&gclsrc=aw.ds/"
+            href="https://www.paris.cl/426256999.html"
             class="ver-mas-btn"
             target="_blank"
             >Ver más</a
@@ -109,7 +49,7 @@
           <span class="precio">$1.299.990</span>
           <button class="carro-btn" title="Agregar al carro">🛒</button>
           <a
-            href="https://www.playfactory.cl/pc-intel-i7-12700f-rtx-4060-16gb-1tb-win11/?gad_source=1&gad_campaignid=20740067939&gbraid=0AAAAAC7YTP7ggYNHDWKCZkl9rFeNhUnLW&gclid=CjwKCAjwravBBhBjEiwAIr30VIUpVWAWuXSF2hGwy_E-H7TqK3YeQ4XfNeJCBUrHsawqfaVRpbe4exoCKAsQAvD_BwE"
+            href="https://www.playfactory.cl/pc-intel-i7-12700f-rtx-4060-16gb-1tb-win11/"
             class="ver-mas-btn"
             target="_blank"
             >Ver más</a
@@ -121,7 +61,7 @@
           <span class="precio">$879.992</span>
           <button class="carro-btn" title="Agregar al carro">🛒</button>
           <a
-            href="https://www.lenovo.com/cl/es/p/computadoras-de-escritorio/ideacentre/serie-aio-500/ideacentre-aio-i-gen-9-(27-inch-intel)/f0hm00f8ld?cid=cl:sem:pmax|se|google|pmax+top+roas|||F0HM00F8LD|18133386624|||pmax|mixed|all&gad_source=1&gad_campaignid=17336452233&gbraid=0AAAAAC6Zm9L2aGkb4foukrhQkSkLMh5UT&gclid=CjwKCAjwravBBhBjEiwAIr30VBHkk8-awC6Eeevr7ZP8mi5r-2RCy08PQJmT1h42KzBV89WG8widCBoCB48QAvD_BwE"
+            href="https://www.lenovo.com/cl/es/p/computadoras-de-escritorio/ideacentre/serie-aio-500/ideacentre-aio-i-gen-9-(27-inch-intel)/f0hm00f8ld"
             class="ver-mas-btn"
             target="_blank"
             >Ver más</a
@@ -133,7 +73,7 @@
           <span class="precio">$699.990</span>
           <button class="carro-btn" title="Agregar al carro">🛒</button>
           <a
-            href="https://www.elcontainer.cl/tecnologia/laptops/notebook-lenovo-t480s-intel-core-i7-8gb-ram-256gb-ssd?gad_source=1&gad_campaignid=17334228679&gbraid=0AAAAADO0_P7luq6zRZZEja5QRtGsa2N3E&gclid=CjwKCAjwravBBhBjEiwAIr30VP_OwhndtEMJnfvDGnBJfwnVnE0j4iRUnAH2sZXDxVooQ4y-4OeljxoCHOcQAvD_BwE"
+            href="https://www.elcontainer.cl/tecnologia/laptops/notebook-lenovo-t480s-intel-core-i7-8gb-ram-256gb-ssd"
             class="ver-mas-btn"
             target="_blank"
             >Ver más</a
@@ -164,5 +104,66 @@
         </ul>
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let contador = 0;
+        const contadorCarro = document.getElementById("contador-carro");
+        const botonesCarro = document.querySelectorAll(".carro-btn");
+        const modal = document.getElementById("modal-carro");
+        const cerrarModal = document.getElementById("cerrar-modal");
+        const listaCarro = document.getElementById("lista-carro");
+        const productos = document.querySelectorAll(".producto");
+        let carrito = [];
+
+        // Agregar producto al carro
+        botonesCarro.forEach((btn, idx) => {
+          btn.addEventListener("click", function () {
+            contador++;
+            contadorCarro.textContent = contador;
+
+            // Obtener datos del producto
+            const prod = productos[idx];
+            const nombre = prod.querySelector("p").textContent;
+            const precio = prod.querySelector(".precio").textContent;
+
+            carrito.push({ nombre, precio });
+
+            // Mostrar modal al agregar
+            mostrarCarro();
+          });
+        });
+
+        // Mostrar modal al hacer click en el carro superior
+        document
+          .querySelector(".carro-superior")
+          .addEventListener("click", mostrarCarro);
+
+        function mostrarCarro() {
+          listaCarro.innerHTML = "";
+          if (carrito.length === 0) {
+            listaCarro.innerHTML = "<li>No hay productos en el carro.</li>";
+          } else {
+            carrito.forEach((item) => {
+              const li = document.createElement("li");
+              li.textContent = `${item.nombre} - ${item.precio}`;
+              listaCarro.appendChild(li);
+            });
+          }
+          modal.style.display = "flex";
+        }
+
+        cerrarModal.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+
+        // Cerrar modal al hacer click fuera del contenido
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+    </script>
   </body>
 </html>
