@@ -1,0 +1,128 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "menu"
+        "filtros"
+        "productos"
+        "pie";
+    grid-template-rows: auto auto 1fr auto;
+    gap: 10px;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: #004080;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.menu .links {
+    display: none;
+}
+
+.menu .hamburguesa {
+    font-size: 1.5rem;
+}
+
+.filtros {
+    grid-area: filtros;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.productos {
+    grid-area: productos;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+
+.producto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+}
+
+.producto button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.pie {
+    grid-area: pie;
+    background-color: #002b5c;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.pie .social span {
+    margin: 0 10px;
+}
+
+/* Tablet: desde 576px */
+@media (min-width: 576px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu .links {
+        display: none;
+    }
+}
+
+/* Desktop: desde 992px */
+@media (min-width: 992px) {
+    .container {
+        grid-template-areas:
+            "menu filtros"
+            "menu productos"
+            "menu pie";
+        grid-template-columns: 200px 1fr;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .menu .links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .menu .hamburguesa {
+        display: none;
+    }
+
+    .productos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
