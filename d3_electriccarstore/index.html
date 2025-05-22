@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de Computadores</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Barra superior -->
+    <header class="barra-superior">
+      <span class="logo-barra">🖥️ Tienda PC</span>
+      <span class="usuario-barra">Bienvenido</span>
+    </header>
+    <div class="container">
+      <nav class="menu">
+        <!-- Dentro de <nav class="menu"> -->
+        <div class="logo"><h1>Tienda PC</h1></div>
+        <div class="hamburguesa">☰</div>
+        <div class="links">
+          <a href="#"><span class="icono">🏠</span> Inicio</a>
+          <a href="#"><span class="icono">🖥️</span> Catálogo</a>
+          <a href="#"><span class="icono">💸</span> Ofertas</a>
+          <a href="#"><span class="icono">✉️</span> Contacto</a>
+        </div>
+        <div class="carro-superior">
+          <span class="icono-carro">🛒</span>
+          <span id="contador-carro">0</span>
+        </div>
+      </nav>
+      <aside class="filtros">
+        <label for="orden">Ordenar por:</label>
+        <select id="orden">
+          <option value="precio">Precio</option>
+          <option value="marca">Marca</option>
+        </select>
+      </aside>
+
+      <main class="productos">
+        <div class="producto">
+          <img src="./assets/img/notebookasus.jpg" alt="Notebook ASUS" />
+          <p>Notebook ASUS</p>
+          <span class="precio">$489.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.paris.cl/426256999.html"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/pcgamerintel.png" alt="PC Gamer Intel" />
+          <p>PC Gamer Intel</p>
+          <span class="precio">$1.299.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.playfactory.cl/pc-intel-i7-12700f-rtx-4060-16gb-1tb-win11/"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/allinoneHP.png" alt="All in One HP" />
+          <p>All in One HP</p>
+          <span class="precio">$879.992</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.lenovo.com/cl/es/p/computadoras-de-escritorio/ideacentre/serie-aio-500/ideacentre-aio-i-gen-9-(27-inch-intel)/f0hm00f8ld"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+        <div class="producto">
+          <img src="./assets/img/notebooklenovoi7.jpg" alt="Notebook Lenovo" />
+          <p>Notebook Lenovo</p>
+          <span class="precio">$699.990</span>
+          <button class="carro-btn" title="Agregar al carro">🛒</button>
+          <a
+            href="https://www.elcontainer.cl/tecnologia/laptops/notebook-lenovo-t480s-intel-core-i7-8gb-ram-256gb-ssd"
+            class="ver-mas-btn"
+            target="_blank"
+            >Ver más</a
+          >
+        </div>
+      </main>
+
+      <footer class="pie">
+        <p>© 2025 Tienda de Computadores</p>
+        <div class="social">
+          <span>🌐</span>
+          <span>📷</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal Carro de Compras -->
+    <div id="modal-carro" class="modal-carro">
+      <div class="modal-contenido">
+        <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+        <h2>Carro de Compras</h2>
+        <ul id="lista-carro"></ul>
+        <p id="total-carro"><strong>Total:</strong> $0</p>
+        <h3>Método de Pago</h3>
+        <form id="form-pago">
+          <label
+            ><input type="radio" name="pago" value="Tarjeta" checked /> 💳
+            Tarjeta de crédito/débito</label
+          ><br />
+          <label
+            ><input type="radio" name="pago" value="Transferencia" /> 💵
+            Transferencia bancaria</label
+          ><br />
+          <label
+            ><input type="radio" name="pago" value="Efectivo" /> 🪙 Pago en
+            efectivo</label
+          >
+        </form>
+        <button
+          id="confirmar-pago"
+          class="ver-mas-btn"
+          style="margin-top: 16px"
+        >
+          Confirmar compra
+        </button>
+        <p id="mensaje-pago" style="color: green; margin-top: 10px"></p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let contador = 0;
+        const contadorCarro = document.getElementById("contador-carro");
+        let carrito = [];
+
+        function actualizarBotones() {
+          const botonesCarro = document.querySelectorAll(".carro-btn");
+          const productos = document.querySelectorAll(".producto");
+
+          botonesCarro.forEach((btn, idx) => {
+            btn.onclick = function () {
+              contador++;
+              contadorCarro.textContent = contador;
+
+              // Obtener datos del producto
+              const prod = productos[idx];
+              const nombre = prod.querySelector("p").textContent;
+              const precio = prod.querySelector(".precio").textContent;
+
+              carrito.push({ nombre, precio });
+
+              // Mostrar modal al agregar
+              mostrarCarro();
+            };
+          });
+        }
+
+        // Modal
+        const modal = document.getElementById("modal-carro");
+        const cerrarModal = document.getElementById("cerrar-modal");
+        const listaCarro = document.getElementById("lista-carro");
+        const totalCarro = document.getElementById("total-carro");
+        const formPago = document.getElementById("form-pago");
+        const confirmarPago = document.getElementById("confirmar-pago");
+        const mensajePago = document.getElementById("mensaje-pago");
+
+        function mostrarCarro() {
+          listaCarro.innerHTML = "";
+          let total = 0;
+          if (carrito.length === 0) {
+            listaCarro.innerHTML = "<li>No hay productos en el carro.</li>";
+          } else {
+            carrito.forEach((item) => {
+              const li = document.createElement("li");
+              li.textContent = `${item.nombre} - ${item.precio}`;
+              listaCarro.appendChild(li);
+              // Sumar precios (elimina $ y puntos)
+              total += parseInt(item.precio.replace(/\$|\./g, ""));
+            });
+          }
+          totalCarro.innerHTML = `<strong>Total:</strong> $${total.toLocaleString(
+            "es-CL"
+          )}`;
+          mensajePago.textContent = "";
+          modal.style.display = "flex";
+        }
+
+        document.querySelector(".carro-superior").onclick = mostrarCarro;
+        cerrarModal.onclick = function () {
+          modal.style.display = "none";
+        };
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+
+        // Confirmar pago
+        confirmarPago.onclick = function (e) {
+          e.preventDefault();
+          const metodo = formPago.pago.value;
+          mensajePago.textContent = `¡Compra confirmada con método: ${metodo}!`;
+          // Vaciar el carro y actualizar contador
+          carrito = [];
+          contador = 0;
+          contadorCarro.textContent = contador;
+          mostrarCarro();
+        };
+
+        // Inicializar eventos
+        actualizarBotones();
+      });
+
+      // Ordenar productos
+      const selectOrden = document.getElementById("orden");
+      selectOrden.addEventListener("change", function () {
+        const productosContainer = document.querySelector(".productos");
+        const productos = Array.from(document.querySelectorAll(".producto"));
+
+        let productosOrdenados = productos.slice();
+
+        if (this.value === "precio") {
+          productosOrdenados.sort((a, b) => {
+            const precioA = parseInt(
+              a.querySelector(".precio").textContent.replace(/\$|\./g, "")
+            );
+            const precioB = parseInt(
+              b.querySelector(".precio").textContent.replace(/\$|\./g, "")
+            );
+            return precioA - precioB;
+          });
+        } else if (this.value === "marca") {
+          productosOrdenados.sort((a, b) => {
+            const nombreA = a.querySelector("p").textContent.toUpperCase();
+            const nombreB = b.querySelector("p").textContent.toUpperCase();
+            if (nombreA < nombreB) return -1;
+            if (nombreA > nombreB) return 1;
+            return 0;
+          });
+        }
+
+        // Limpiar y volver a agregar en el orden correcto
+        productosContainer.innerHTML = "";
+        productosOrdenados.forEach((prod) =>
+          productosContainer.appendChild(prod)
+        );
+      });
+    </script>
+  </body>
+</html>
