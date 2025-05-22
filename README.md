@@ -21,13 +21,24 @@ Contiene un layout tipo e-commerce desarrollado con **CSS Grid**, simulando una 
 - Tarjetas (cards) con imágenes, descripciones y botones.
 - Estilo limpio y adaptable a distintos tamaños de pantalla.
 
+### 📁 d3_tienda_pc
+Desarrollo completo de una tienda de computadores con funcionalidades avanzadas. Se integran conceptos de diseño responsivo, lógica de carrito de compras y ordenamiento dinámico. Incluye:
+
+- Layout responsivo con barra superior, navegación y cards de productos.
+- Agregado de productos al carrito con contador en tiempo real.
+- Modal de carrito con métodos de pago y confirmación de compra.
+- Ordenamiento por precio o marca usando JavaScript.
+- Estilizado moderno y adaptado a distintos tamaños de pantalla.
+
 ## Tecnologías Utilizadas
 
-- HTML5
-- CSS3
-- Flexbox
-- CSS Grid
-- Iconos con Font Awesome
+- HTML5  
+- CSS3  
+- Flexbox  
+- CSS Grid  
+- Media Queries  
+- JavaScript (DOM y lógica de eventos)  
+- Iconos con emojis y diseño accesible
 
 ## Estado del Proyecto
 
