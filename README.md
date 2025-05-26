@@ -22,7 +22,8 @@ Contiene un layout tipo e-commerce desarrollado con **CSS Grid**, simulando una 
 - Estilo limpio y adaptable a distintos tamaños de pantalla.
 
 ### 📁 d3_electriccarstore
-Tienda_pc
+Tienda_pc link : http://127.0.0.1:5500/index.html
+
 Desarrollo completo de una tienda de computadores con funcionalidades avanzadas. Se integran conceptos de diseño responsivo, lógica de carrito de compras y ordenamiento dinámico. Incluye:
 
 - Layout responsivo con barra superior, navegación y cards de productos.
