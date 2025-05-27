@@ -1,3 +1,13 @@
+/* Variables de colores */
+:root {
+  --color-principal: #0077ff;
+  --color-secundario: #333;
+  --color-fondo: #f5f5f5;
+  --color-hover: #ff8c00;
+  --color-footer: #222;
+  --color-texto: #fff;
+}
+
 /* Reset básico */
 * {
   margin: 0;
@@ -8,18 +18,18 @@
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--color-fondo);
+  color: var(--color-secundario);
 }
 
 /* Header y navegación */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0077ff;
-  color: white;
+  background-color: var(--color-principal);
+  color: var(--color-texto);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo h1 {
@@ -29,12 +39,18 @@ body {
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .nav a {
-  color: white;
+  color: var(--color-texto);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--color-hover);
 }
 
 /* Galería de imágenes */
@@ -49,37 +65,63 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
   filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  transition: filter 0.5s ease, transform 0.5s ease;
 }
 
 .imagen img:hover {
   filter: grayscale(0%);
+  transform: scale(1.05);
 }
 
 /* Footer */
 .footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
+  background-color: var(--color-footer);
+  color: var(--color-texto);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 1rem;
+  text-align: center;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
 }
 
 .redes a {
-  color: #fff;
+  color: var(--color-texto);
   margin: 0 0.5rem;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
+.redes a:hover {
+  color: var(--color-hover);
+}
+
+/* Media Queries para responsividad */
+@media (min-width: 768px) {
   .header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .footer {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr;
   }
 }
