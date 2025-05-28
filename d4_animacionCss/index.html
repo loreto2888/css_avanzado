@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prueba - Animaciones en CSS</title>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
   <!-- Menú lateral / superior -->
@@ -21,6 +26,12 @@
     </nav>
   </header>
 
+  <!-- Sección Inicio -->
+  <section id="inicio" style="padding:2rem; margin-top:80px;">
+    <h2>Bienvenido a MiMarca</h2>
+    <p>Esta es la sección de inicio de la página.</p>
+  </section>
+
   <!-- Sección principal: Galería -->
   <main class="galeria" id="galeria">
     <div class="imagen">
@@ -34,13 +45,19 @@
     </div>
   </main>
 
+  <!-- Sección Contacto -->
+  <section id="contacto" style="padding:2rem;">
+    <h2>Contacto</h2>
+    <p>Escríbenos a contacto@ejemplo.com o usa nuestras redes sociales.</p>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <p>Contacto: contacto@ejemplo.com</p>
     <div class="redes">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </footer>
 </body>
