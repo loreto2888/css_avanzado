@@ -34,6 +34,12 @@ body {
 
 .logo h1 {
   font-size: 1.8rem;
+  animation: texto-entrada 2s ease-in-out infinite alternate;
+}
+
+@keyframes texto-entrada {
+  0% { opacity: 0.7; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(5px); }
 }
 
 .nav ul {
@@ -46,11 +52,13 @@ body {
 .nav a {
   color: var(--color-texto);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav a:hover {
   color: var(--color-hover);
+  transform: scale(1.1);
 }
 
 /* Galería de imágenes */
@@ -67,12 +75,19 @@ body {
   display: block;
   border-radius: 8px;
   filter: grayscale(100%);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  transition: filter 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  animation: flotar 4s ease-in-out infinite alternate;
 }
 
 .imagen img:hover {
   filter: grayscale(0%);
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
 }
 
 /* Footer */
@@ -89,20 +104,26 @@ body {
 
 .footer p {
   margin: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.footer p:hover {
+  color: var(--color-hover);
 }
 
 .redes a {
   color: var(--color-texto);
   margin: 0 0.5rem;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .redes a:hover {
   color: var(--color-hover);
+  transform: scale(1.1);
 }
 
-/* Media Queries para responsividad */
+/* Media Queries */
 @media (min-width: 768px) {
   .header {
     flex-direction: row;
