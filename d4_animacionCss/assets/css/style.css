@@ -1,54 +1,118 @@
-/* ...existing code... */
-
-/* Animación de entrada para el menú */
-.header {
-  /* ...existing code... */
-  animation: slideInMenu 1s ease;
+/* Variables de colores */
+:root {
+  --color-principal: #0077ff;
+  --color-secundario: #333;
+  --color-fondo: #f5f5f5;
+  --color-hover: #ff8c00;
+  --color-footer: #222;
+  --color-texto: #fff;
 }
 
-@keyframes slideInMenu {
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-secundario);
+  animation: fadeInBody 1s;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Header y navegación */
+.header {
+  background-color: var(--color-principal);
+  color: var(--color-texto);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: slideDown 0.8s;
+}
+
+@keyframes slideDown {
   from {
-    transform: translateX(-100%);
+    transform: translateY(-40px);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-/* Animación de subrayado en los enlaces del menú */
+.logo h1 {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  animation: fadeInLogo 1.2s;
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: scale(0.8);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .nav a {
-  /* ...existing code... */
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
   position: relative;
-  overflow: hidden;
+  padding: 2px 0;
 }
 
 .nav a::after {
   content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-hover);
+  transition: width 0.3s;
   position: absolute;
   left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background: var(--color-secundario);
-  transform: scaleX(0);
-  transition: transform 0.3s;
-  transform-origin: left;
+  bottom: 0;
+}
+
+.nav a:hover {
+  color: var(--color-hover);
+  transform: scale(1.08);
 }
 
 .nav a:hover::after {
-  transform: scaleX(1);
+  width: 100%;
 }
 
-/* Galería: animación al aparecer */
+/* Galería de imágenes */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
 .imagen {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s forwards;
 }
-.imagen:nth-child(2) { animation-delay: 0.2s; }
-.imagen:nth-child(3) { animation-delay: 0.4s; }
+.imagen:nth-child(1) { animation-delay: 0.1s; }
+.imagen:nth-child(2) { animation-delay: 0.3s; }
+.imagen:nth-child(3) { animation-delay: 0.5s; }
 
 @keyframes fadeInUp {
   to {
@@ -57,21 +121,32 @@
   }
 }
 
-/* Imagen: efecto de zoom y color al pasar el mouse (ya lo tienes, agrego sombra animada) */
 .imagen img {
-  /* ...existing code... */
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  filter: grayscale(100%);
+  transition: filter 0.5s, transform 0.5s, box-shadow 0.3s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: filter 0.5s, transform 0.3s, box-shadow 0.3s;
 }
 
 .imagen img:hover {
-  /* ...existing code... */
-  box-shadow: 0 8px 24px rgba(35,41,70,0.18);
+  filter: grayscale(0%);
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
-/* Footer: animación de entrada */
+/* Footer */
 .footer {
-  /* ...existing code... */
+  background-color: var(--color-footer);
+  color: var(--color-texto);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  text-align: center;
   animation: fadeInFooter 1.2s 0.5s backwards;
 }
 
@@ -86,16 +161,44 @@
   }
 }
 
-/* Animación en los enlaces de redes sociales */
-.footer .redes a {
-  /* ...existing code... */
+.footer p {
+  margin: 0.5rem 0;
+}
+
+.redes a {
+  color: var(--color-texto);
+  margin: 0 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
   position: relative;
-  transition: color 0.2s, transform 0.2s;
 }
 
-.footer .redes a:hover {
-  /* ...existing code... */
-  transform: scale(1.1) rotate(-3deg);
+.redes a:hover {
+  color: var(--color-hover);
+  transform: scale(1.15) rotate(-3deg);
 }
 
-/* ...existing responsive code... */
+/* Media Queries para responsividad */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+}
