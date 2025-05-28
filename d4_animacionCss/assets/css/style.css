@@ -105,28 +105,65 @@ body {
   padding: 2rem;
 }
 
+/* Animaciones diferentes para cada imagen */
 .imagen {
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s forwards;
 }
-.imagen:nth-child(1) { animation-delay: 0.1s; }
-.imagen:nth-child(2) { animation-delay: 0.3s; }
-.imagen:nth-child(3) { animation-delay: 0.5s; }
 
-@keyframes fadeInUp {
+/* Primera imagen: desde arriba */
+.imagen:nth-child(1) {
+  animation: fadeInDown 0.8s forwards;
+  animation-delay: 0.1s;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Segunda imagen: desde la derecha */
+.imagen:nth-child(2) {
+  animation: fadeInRight 0.8s forwards;
+  animation-delay: 0.3s;
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Tercera imagen: giro */
+.imagen:nth-child(3) {
+  animation: fadeInRotate 0.8s forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
 .imagen img {
-  width: 100%;
-  height: auto;
+  width: 280px;
+  height: 220px;
+  object-fit: cover;
   display: block;
   border-radius: 8px;
-  filter: grayscale(100%);
   transition: filter 0.5s, transform 0.5s, box-shadow 0.3s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
