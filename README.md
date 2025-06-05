@@ -34,6 +34,7 @@ Desarrollo completo de una tienda de computadores con funcionalidades avanzadas.
 
 ## 📁 D4 - Animación CSS
 MiMarca - Psicopedago@ : http://127.0.0.1:5501/index.html#contacto
+
 En el desafío D4 se implementó una galería de imágenes con animaciones avanzadas en CSS:
 
 - Cada imagen tiene un marco de color diferente.
