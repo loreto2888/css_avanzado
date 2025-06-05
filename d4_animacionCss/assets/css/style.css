@@ -50,6 +50,16 @@ body {
   }
 }
 
+.logo {
+  display: inline-block;
+  animation: moverLogo 3s ease-in-out infinite alternate;
+}
+
+@keyframes moverLogo {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(40px); }
+}
+
 .logo h1 {
   font-size: 1.8rem;
   letter-spacing: 2px;
@@ -57,8 +67,14 @@ body {
 }
 
 @keyframes fadeInLogo {
-  from { opacity: 0; transform: scale(0.8);}
-  to { opacity: 1; transform: scale(1);}
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .nav ul {
@@ -105,26 +121,57 @@ body {
   padding: 2rem;
 }
 
-/* Animaciones diferentes para cada imagen */
+/* Las imágenes siempre visibles */
 .imagen {
-  opacity: 0;
+  opacity: 1;
 }
 
-/* Primera imagen: desde arriba */
-.imagen:nth-child(1) {
-  animation: fadeInDown 0.8s forwards;
-  animation-delay: 0.1s;
+/* Primera imagen: rebota suavemente */
+.imagen:nth-child(1) img {
+  animation: rebote 2s ease-in-out infinite alternate;
+  border: 4px solid #ff8c00; /* Naranja */
 }
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes rebote {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-20px);}
 }
+
+/* Segunda imagen: se mueve de lado a lado */
+.imagen:nth-child(2) img {
+  animation: ladoLado 2.5s ease-in-out infinite alternate;
+  border: 4px solid #0077ff; /* Azul */
+}
+@keyframes ladoLado {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(20px);}
+}
+
+/* Tercera imagen: gira lentamente */
+.imagen:nth-child(3) img {
+  animation: girar 3s linear infinite;
+  border: 4px solid #43a047; /* Verde */
+}
+@keyframes girar {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.imagen img {
+  width: 480px;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  transition: filter 0.8s, transform 0.5s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.imagen img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
 /* Animación para la sección de inicio */
 .inicio-animada {
   opacity: 0;
@@ -138,52 +185,10 @@ body {
     transform: translateY(0);
   }
 }
-/* Segunda imagen: desde la derecha */
-.imagen:nth-child(2) {
-  animation: fadeInRight 0.8s forwards;
-  animation-delay: 0.3s;
-}
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-/* Tercera imagen: giro */
-.imagen:nth-child(3) {
-  animation: fadeInRotate 0.8s forwards;
-  animation-delay: 0.5s;
-}
-@keyframes fadeInRotate {
-  from {
-    opacity: 0;
-    transform: rotate(-180deg) scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-.imagen img {
-  width: 280px;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
-  transition: filter 0.5s, transform 0.5s, box-shadow 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.imagen img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+/* Título azul */
+.titulo-azul {
+  color: #0077ff;
 }
 
 /* Footer */

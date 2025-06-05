@@ -9,6 +9,16 @@
       html {
         scroll-behavior: smooth;
       }
+      @keyframes fadeInModal {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
   <body>
@@ -26,24 +36,101 @@
       </nav>
     </header>
 
-       <!-- Sección Inicio -->
-    <section id="inicio" class="inicio-animada" style="padding: 2rem; margin-top: 80px">
-      <h2>Bienvenido a MiMarca</h2>
+    <!-- Sección Inicio -->
+    <section
+      id="inicio"
+      class="inicio-animada"
+      style="padding: 2rem; margin-top: 80px"
+    >
+      <h2 class="titulo-azul">Bienvenido a MiMarca</h2>
       <p>Esta es la sección de inicio de la página.</p>
     </section>
 
     <!-- Sección principal: Galería -->
-    <main class="galeria" id="galeria">
+    <section
+      class="galeria"
+      id="galeria"
+      style="
+        min-height: 300px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        align-items: center;
+      "
+    >
       <div class="imagen">
-        <img src="./assets/img/tarjetas_matematicas.jpg" alt="Imagen 1" />
+        <a
+          href="https://www.editorialmd.com/ver/tarjetas-de-los-numeros-y-cantidad-transportes"
+          target="_blank"
+          style="text-align: center"
+        >
+          <img
+            src="./assets/img/tarjetas_matematicas.jpg"
+            alt="Imagen 1"
+            style="
+              width: 180px;
+              height: 120px;
+              object-fit: cover;
+              border-radius: 8px;
+            "
+          />
+          <p>Material Matemáticas</p>
+        </a>
+        <div style="text-align:center; margin-top:0.5rem;">
+          <a href="https://www.editorialmd.com/ver/tarjetas-de-los-numeros-y-cantidad-transportes" target="_blank" style="font-size:0.9rem; color:#0077ff; text-decoration:underline;">
+            Ver referencia
+          </a>
+        </div>
       </div>
       <div class="imagen">
-        <img src="./assets/img/test_psicologico.png" alt="Imagen 2" />
+        <a
+          href="https://www.chegg.com/homework-help/questions-and-answers/q1-image-depicts-task-test---wisconsin-card-sorting-hot-executive-function-b-bechara-s-gam-q59866056"
+          target="_blank"
+          style="text-align: center"
+        >
+          <img
+            src="./assets/img/test_psicologico.png"
+            alt="Imagen 2"
+            style="
+              width: 180px;
+              height: 120px;
+              object-fit: cover;
+              border-radius: 8px;
+            "
+          />
+          <p>Test Psicológico</p>
+        </a>
+        <div style="text-align:center; margin-top:0.5rem;">
+          <a href="https://www.chegg.com/homework-help/questions-and-answers/q1-image-depicts-task-test---wisconsin-card-sorting-hot-executive-function-b-bechara-s-gam-q59866056" target="_blank" style="font-size:0.9rem; color:#0077ff; text-decoration:underline;">
+            Ver referencia
+          </a>
+        </div>
       </div>
       <div class="imagen">
-        <img src="./assets/img/wppsi_IV.png" alt="Imagen 3" />
+        <a
+          href="https://www.studocu.com/es-ar/document/instituto-superior-del-profesorado-san-benito/psicologia/wppsi-iv-estimulos-1/98899116"
+          target="_blank"
+          style="text-align: center"
+        >
+          <img
+            src="./assets/img/wppsi_IV.png"
+            alt="Imagen 3"
+            style="
+              width: 180px;
+              height: 120px;
+              object-fit: cover;
+              border-radius: 8px;
+            "
+          />
+          <p>WPPSI-IV</p>
+        </a>
+        <div style="text-align:center; margin-top:0.5rem;">
+          <a href="https://www.studocu.com/es-ar/document/instituto-superior-del-profesorado-san-benito/psicologia/wppsi-iv-estimulos-1/98899116" target="_blank" style="font-size:0.9rem; color:#0077ff; text-decoration:underline;">
+            Ver referencia
+          </a>
+        </div>
       </div>
-    </main>
+    </section>
 
     <!-- Sección Contacto -->
     <section id="contacto" style="padding: 2rem">
