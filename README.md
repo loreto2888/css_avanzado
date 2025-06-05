@@ -32,6 +32,19 @@ Desarrollo completo de una tienda de computadores con funcionalidades avanzadas.
 - Ordenamiento por precio o marca usando JavaScript.
 - Estilizado moderno y adaptado a distintos tamaños de pantalla.
 
+## 📁 D4 - Animación CSS
+MiMarca - Psicopedago@ : http://127.0.0.1:5501/index.html#contacto
+En el desafío D4 se implementó una galería de imágenes con animaciones avanzadas en CSS:
+
+- Cada imagen tiene un marco de color diferente.
+- Las imágenes presentan animaciones distintas: rebote, movimiento lateral y giro.
+- Al hacer clic en cada imagen, se abre una página externa con información o referencia.
+- El diseño es responsivo y mantiene efectos visuales modernos.
+- Se incluye un modal de contacto animado y un menú de navegación funcional.
+
+
+---
+
 ## Tecnologías Utilizadas
 
 - HTML5  
